@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+<h1>Confirm Your Order</h1>
+{% block content %}
+
+<div>
+<pre>
+<!-- shop.html -->
+<h1>Cart Products</h1>
+<ul>
+    {% for cart_product in cart_products %}
+        <li>{{ cart_product.car_part.name }} - Quantity: {{ cart_product.quantity }} - Total Cost: {{ cart_product.total_cost }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'UserApp:orderconfirm' cart.pk %}" class="btn btn-primary" id="rzp-button1">Make Payment</a>
+</pre>
+</div>
+{% endblock%}

@@ -1,0 +1,22 @@
+h4{
+    color: white;
+}
+table,th
+{
+    color: beige;
+    text-align: center;
+}
+a,a:hover{
+    color: darkgray;
+}
+td
+{
+    color: beige;
+}
+h2,h5
+{
+    color: coral;
+}
+p{
+    color: darkseagreen;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content%}
+<html>
+<head><title>Car Part Information </title></head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Part Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Part Description</th>
+            <th scope="col">Part Category</th>
+            <th scope="col">Price</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{object.name}}</td>
+            <td><img src="{{object.image.url}}" height="100px" width="100px"></td>
+            <td>{{object.description}}</td>
+            <td>{{object.category}}</td>
+            <td>{{object.price}}</td>
+            
+          </tr>
+         
+        </tbody>
+      </table>
+
+<a href="{% url 'Car_Part_App:addcart' object.pk %}" class="btn btn-info">Add to Cart</a>
+
+{% endblock %}
+
+</body>
+</html>

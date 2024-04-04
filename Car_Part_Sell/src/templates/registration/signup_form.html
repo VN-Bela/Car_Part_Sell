@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h2>Sign up for a free account</h2>
+    </div>
+    <div class="row">
+        <p>Select below the type of account you want to create</p> 
+    </div>
+        <li>
+            <a href="{% url 'UserApp:buyer_signup' %}">I'm a Buyer Or User</a>
+        </li>
+        <li>
+            <a href="{% url 'UserApp:seller_signup' %}">I'm a Seller</a>
+        </li>
+    
+</div>
+    {% endblock %}

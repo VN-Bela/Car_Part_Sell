@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block content %}
+<div class="container">
+  <!-- Filter Category -->
+  <div class="heading_container">
+    <h4 style="color: white;">Car Part Information</h4>
+  </div>
+  <div class="row">
+  {% if user.user_role == 0 %}
+  <p><a href="{% url 'Car_Part_App:parts_data' %}">Add Part</a></p>
+  {% endif %}
+  </div>
+  <div class="row">
+ 
+  <form method="get">
+   {% csrf_token %}
+   <h5 style="color: bisque;">Select Part Category | Car Model | Car Menufecture | Car Model Year</h5>
+    <select name="category_name">
+      {% for cat in categories %}
+      <option value="{{ cat.pk }}">{{ cat.name}}</option>
+      {% endfor %}
+    </select>
+   
+    <select name="car_model">
+      {% for car in car_model %}
+      <option value="{{ car.name }}">{{ car.name}}</option>
+      {% endfor %}
+    </select>
+   
+    <select name="car_model">
+      {% for car in car_model %}
+      <option value="{{ car.manufacturer}}">{{car.manufacturer}}</option>
+      {% endfor %}
+    </select>
+    
+    <select name="car_model">
+      {% for car in car_model %}
+      <option value="{{ car.manufacturer}}">{{ car.year}}</option>
+      {% endfor %}
+    </select>
+    
+    <input type="submit" name="category" value="submit" class="btn btn-primary btn-sm" />
+  </form>
+  </div>
+  <div class="row">
+  <div class="content homepage" id="menu-1">
+    <div class="container-fluid">
+      <div class="row">
+        {% for data in parts %}
+        <div class="col-md-2 col-sm-6 col-md-offset-1">
+          <div class="gallery-item">
+            <img src="{{data.image.url}}" alt="image 1">
+            <div class="content-gallery">
+              <h3>{{data.name}}</h3><br />
+              <a href="{% url 'Car_Part_App:car_detail' data.pk %}" class="btn btn-info btn-sm">More Info</a>
+
+            </div>
+          </div> <!-- /.gallery-item -->
+        </div> <!-- /.col-md-2 -->
+        {% endfor %}
+      </div>
+    </div>
+</div>
+{% endblock %}
